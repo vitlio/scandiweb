@@ -1,9 +1,9 @@
 import { connect } from "react-redux";
 import Cart from "./cart";
-import {removeFromCartAC} from '../../store/actionCreators/removeFromCartAC'
-import {addTotalCountAC} from '../../store/actionCreators/addTotalCountAC'
-import {addToCartAC} from '../../store/actionCreators/addToCartAC'
-import {addAttributeInCartAC} from '../../store/actionCreators/addAttributeInCartAC'
+import { removeFromCartAC } from "../../store/actionCreators/removeFromCartAC";
+import { addTotalCountAC } from "../../store/actionCreators/addTotalCountAC";
+import { addToCartAC } from "../../store/actionCreators/addToCartAC";
+import { addAttributeInCartAC } from "../../store/actionCreators/addAttributeInCartAC";
 
 function mapStateToProps() {
   return (state) => {
@@ -20,7 +20,8 @@ function mapDispatchToProps() {
     return {
       addThisItemToCart: (value) => dispatch(addToCartAC(value)),
       removeThisItemFromCart: (value) => dispatch(removeFromCartAC(value)),
-      addAttributeInCart: (value, choosenSize) => dispatch(addAttributeInCartAC(value, choosenSize)),
+      addAttributeInCart: (value, choosenSize) =>
+        dispatch(addAttributeInCartAC(value, choosenSize)),
       amountTotal: (value) => dispatch(addTotalCountAC(value)),
     };
   };
