@@ -1,0 +1,21 @@
+.wrap {
+  max-width: 1238px;
+  margin: 0 auto;
+  height: auto;
+}
+.categoryName {
+  height: 68px;
+  align-items: center;
+  margin-top: 80px;
+  margin-left: 0;
+  margin-bottom: 103px;
+  font-size: 42px;
+  color: #1d1f22;
+}
+.categoryName:first-letter {
+  text-transform: uppercase;
+}
+.component-overflow{
+  height: 100%;
+  overflow: hidden;
+}

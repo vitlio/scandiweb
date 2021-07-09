@@ -1,0 +1,165 @@
+.wrap {
+  max-width: 1238px;
+  margin: 0 auto;
+  height: auto;
+}
+.imagePage-container {
+  display: flex;
+  margin-top: 80px;
+  padding-bottom: 72px;
+}
+.imagePage-photoSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 729px;
+}
+.imagePage-photoCollection {
+  width: 79px;
+  max-height: 511px;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+.imagePage-photoCollection::-webkit-scrollbar {
+  width: 0 !important;
+}
+.imagePage-photoCollection img {
+  width: 79px;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+.imagePage-mainPhoto {
+  width: 610px;
+}
+.imagePage-mainPhoto img {
+  width: 100%;
+}
+.imagePage-descriptionSection {
+  display: flex;
+  margin-left: 100px;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.imagePage-title {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 40px;
+}
+.imagePage-title-name {
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.imagePage-sizes {
+  margin-bottom: 40px;
+}
+.imagePage-block-title {
+  font-family: "Roboto Condensed";
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.imagePage-colorBox {
+  display: inline-block;
+  width: 45px;
+  height: 45px;
+  border: 1px solid #bfc0c2;
+  border-radius: 50%;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 13px;
+  margin-right: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.imagePage-sizeBox {
+  display: inline-block;
+  width: 63px;
+  height: 45px;
+  border: 1px solid #1d1f22;
+  box-sizing: border-box;
+  text-align: center;
+  padding-top: 13px;
+  margin-right: 12px;
+  font-size: 16px;
+  font-weight: 400;
+  cursor: pointer;
+}
+.imagePage-colorBox-active {
+  box-shadow: 0 0 10px #e60b16;
+  border: none;
+}
+.imagePage-sizeBox-active {
+  color: #ffffff !important;
+  background-color: #1d1f22;
+}
+.attribute-color__green {
+  background-color: #44ff03;
+}
+.attribute-color__cyan {
+  background-color: #03fff7;
+}
+.attribute-color__blue {
+  background-color: #030bff;
+}
+.attribute-color__black {
+  background-color: #000000;
+}
+.attribute-color__white {
+  background-color: #ffffff;
+}
+.imagePage-price {
+  margin-bottom: 40px;
+}
+.imagePage-block-price {
+  font-weight: 700;
+  font-size: 24px;
+}
+.imagePage-cartButton {
+  width: 292px;
+  height: 52px;
+  background: #5ece7b;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: Raleway;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 120%;
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+.imagePage-cartButton__disable {
+  width: 292px;
+  height: 52px;
+  background: #bec4bf;
+  font-weight: 600;
+  font-size: 16px;
+  font-family: Raleway;
+  font-style: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  line-height: 120%;
+  margin-bottom: 40px;
+  cursor: default;
+}
+.imagePage-description {
+  width: 292px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 159.96%;
+  color: #1d1f22;
+}

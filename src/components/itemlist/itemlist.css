@@ -1,0 +1,8 @@
+.itemlist {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.item-container-cell {
+  width: 33.3%;
+}

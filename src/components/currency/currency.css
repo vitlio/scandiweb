@@ -1,0 +1,19 @@
+.currency-modal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 25px;
+  padding-left: 20px;
+  width: 114px;
+  left: -31px;
+  top: 35px;
+  box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
+}
+.currency-modal div {
+  color: #1d1f22;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 21px;
+  cursor: pointer;
+}

@@ -1,0 +1,1 @@
+export const CURRENT_CURRENCY = "CURRENT_CURRENCY";

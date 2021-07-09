@@ -1,0 +1,16 @@
+export let initialState = {
+    currency: "$",
+    currencyArrow: false,
+    currencyName: "USD",
+    category: "",
+    stock: true,
+    cart: (localStorage.cart && JSON.parse(localStorage.cart)) || [],
+    cartOpen: false,
+    total: 0,
+    goodsCount: 0,
+    currentPage: "",
+    categoryName: "",
+    headerMenu: "",
+    items: [],
+    currentItem: {},
+  };

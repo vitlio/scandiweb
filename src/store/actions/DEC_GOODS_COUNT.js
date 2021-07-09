@@ -1,0 +1,1 @@
+export const DEC_GOODS_COUNT = "DEC_GOODS_COUNT";

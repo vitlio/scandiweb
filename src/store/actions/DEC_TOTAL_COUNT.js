@@ -1,0 +1,1 @@
+export const DEC_TOTAL_COUNT = "DEC_TOTAL_COUNT";
