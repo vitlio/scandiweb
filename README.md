@@ -1,4 +1,5 @@
-Server is on https://github.com/scandiweb/junior-react-endpoint
+Server is https://github.com/scandiweb/junior-react-endpoint
+
 Server starting with npm start
 
 # Getting Started with Create React App
