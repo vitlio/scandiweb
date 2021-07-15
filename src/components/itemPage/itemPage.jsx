@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router";
+import Parser from "html-react-parser";
 import ITEM_PAGE_W from "../itemPage/itemPage_w";
 import CartStorage from "../cartStorage/cartStorage";
 import "./itemPage.css";
@@ -84,12 +85,17 @@ class ItemPage extends React.PureComponent {
         });
     }
   }
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.cartOpen) return false;
+    if (!nextProps.cartOpen) return true;
+  }
   render() {
     this.props.cartOpen
       ? document.body.classList.add("component-overflow")
       : document.body.classList.remove("component-overflow");
-
+    console.log("itemPage", this.props.cart);
     return (
+
       <>
         <Route path="item/:itemName?" render={() => <ITEM_PAGE_W />} />
         {this.state.item && (
@@ -224,12 +230,9 @@ class ItemPage extends React.PureComponent {
                     OUT OF STOCK
                   </div>
                 )}
-                <div
-                  className="imagePage-description"
-                  dangerouslySetInnerHTML={{
-                    __html: this.state.item.description,
-                  }}
-                ></div>
+                <div className="imagePage-description">
+                  {Parser(this.state.item.description)}
+                </div>
               </div>
             </div>
           </div>

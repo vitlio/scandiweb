@@ -24,7 +24,7 @@ class Header extends React.PureComponent {
       if (e.target.closest(".headerCart")) {
         return;
       } else if (this.props.cartOpen && !e.target.closest(".shopCartButton")) {
-        this.props.cartOpenClose();
+        this.props.cartOpenClose(!this.props.cartOpen);
       }
     };
   }
@@ -105,7 +105,7 @@ class Header extends React.PureComponent {
             <li
               className="shopCartButton"
               onClick={() => {
-                this.props.cartOpenClose();
+                this.props.cartOpenClose(!this.props.cartOpen);
               }}
             >
               <img
@@ -114,7 +114,7 @@ class Header extends React.PureComponent {
               />
               {this.props.cart.length > 0 && (
                 <div className="shopCartButton__indicator">
-                  {this.props.cart &&
+                  {this.props.cart && 
                     this.props.cart.reduce(
                       (prev, i) => prev + i.countInCart,
                       0

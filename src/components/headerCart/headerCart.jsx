@@ -5,6 +5,7 @@ import "./headerCart.css";
 
 class HeaderCart extends React.PureComponent {
   render() {
+
     let total = this.props.cart
       .map(
         (i) =>
@@ -22,7 +23,7 @@ class HeaderCart extends React.PureComponent {
           <div className="headerCart-title__myBag">
             My Bag,&nbsp;
             <span className="headerCart-title__items">
-              {this.props.cart.length} items
+              {this.props.cart&&this.props.cart.length} items
             </span>
           </div>
         </div>
@@ -32,11 +33,9 @@ class HeaderCart extends React.PureComponent {
             return (
               <div key={idx} className="headerCart-itemCard">
                 <div className="headerCart-itemCard__description">
-                  <NavLink to={"/"}>
                     <NavLink to={"/item/" + i.name}>
                       <div className="headerCart-itemCard__title">{i.name}</div>
                     </NavLink>
-                  </NavLink>
                   <div className="headerCart-itemCard__price">
                     {this.props.currency}
                     {
@@ -143,6 +142,8 @@ class HeaderCart extends React.PureComponent {
                           ...i,
                           countInCart: 1,
                         });
+
+
                         this.props.addThisItemToCart({ ...i, countInCart: 1 });
                       }}
                     >
@@ -185,7 +186,7 @@ class HeaderCart extends React.PureComponent {
         <div className="headerCart-buttons">
           <div
             className="headerCart-bagBtn"
-            onClick={(e) => this.props.cartOpenClose()}
+            onClick={(e) => this.props.cartOpenClose(!this.props.cartOpen)}
           >
             <NavLink to="/cart" className="headerLinksA">
               View bag

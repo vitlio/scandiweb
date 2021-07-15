@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import ITEM_W from "../item/item_w";
-import './itemlist.css'
+import "./itemlist.css";
 
 class Itemlist extends React.PureComponent {
   constructor(props) {
@@ -11,8 +11,53 @@ class Itemlist extends React.PureComponent {
     };
   }
   componentDidMount() {
-    let url =
-      "http://localhost:4000?query={category{products{category,gallery,inStock,name,description,attributes{id,name,type,items{displayValue,value,id}} prices{currency,amount}}}}";
+    let url;
+    if (!this.props.match.params.categoryName) {
+      url = `http://localhost:4000?query={
+        category{
+          products{
+            category,
+            gallery,
+            inStock,
+            name,
+            description,
+            attributes{
+              id,
+              name,
+              type,
+              items{
+                displayValue,
+                value,
+                id
+              }} 
+              prices{
+                currency,
+                amount
+              }}}}`;
+    } else {
+      url = `http://localhost:4000?query={
+                category(input: {title: ${this.props.match.params.categoryName}}){
+                  products{
+                    category,
+                    gallery,
+                    inStock,
+                    name,
+                    description,
+                    attributes{
+                      id,
+                      name,
+                      type,
+                      items{
+                        displayValue,
+                        value,
+                        id
+                      }} 
+                      prices{
+                        currency,
+                        amount
+                      }}}}`;
+    }
+
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -20,6 +65,7 @@ class Itemlist extends React.PureComponent {
       });
   }
   render() {
+    console.log("props.match.url", this.props.match.params.categoryName);
     return (
       <div className="itemlist">
         {document.location.pathname === "/" &&

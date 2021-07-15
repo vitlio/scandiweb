@@ -6,6 +6,7 @@ import { removeFromCartAC } from "../../store/actionCreators/removeFromCartAC";
 import { addTotalCountAC } from "../../store/actionCreators/addTotalCountAC";
 import { addToCartAC } from "../../store/actionCreators/addToCartAC";
 import { addAttributeInCartAC } from "../../store/actionCreators/addAttributeInCartAC";
+import { fillCartAC } from "../../store/actionCreators/fillCartAC";
 
 function mapStateToProps() {
   return (state) => {
@@ -24,8 +25,9 @@ function mapDispatchToProps() {
       amountTotal: (value) => dispatch(addTotalCountAC(value)),
       addThisItemToCart: (value) => dispatch(addToCartAC(value)),
       removeThisItemFromCart: (value) => dispatch(removeFromCartAC(value)),
-      cartOpenClose: () => dispatch(cartOpenAC()),
+      cartOpenClose: (value) => dispatch(cartOpenAC(value)),
       addAttributeInCart: (value, choosenSize) => dispatch(addAttributeInCartAC(value, choosenSize)),
+      fillEntireCart: (value) => dispatch(fillCartAC(value)),
     };
   };
 }

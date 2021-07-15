@@ -12,6 +12,8 @@ class Cart extends React.PureComponent {
       cart: this.props.cart,
       currency: this.props.currency,
       currencyName: this.props.currencyName,
+      cartOpen: this.props.cartOpen,
+      number: 1,
     };
   }
   beforePicture(e, i) {
@@ -27,6 +29,10 @@ class Cart extends React.PureComponent {
   componentDidMount() {
     document.body.classList.remove("component-overflow");
   }
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.cartOpen) return false;
+    if (!nextProps.cartOpen) return true;
+  }
   render() {
     let total = this.props.cart
       .map(
@@ -39,6 +45,7 @@ class Cart extends React.PureComponent {
       }, 0)
       .toFixed(2);
     this.props.amountTotal(total);
+
     return (
       <div className="wrap">
         <div className="wrap-cart">

@@ -80,6 +80,9 @@ export const cart = (state = initialState.cart, action) => {
     case FILL_CART: {
       return [...action.cart];
     }
+    // case REDEFINITION_CART: {
+    //   return
+    // }
     default:
       return state;
   }

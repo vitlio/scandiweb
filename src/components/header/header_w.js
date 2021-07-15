@@ -22,7 +22,7 @@ function mapDispatchToProps() {
     return {
       currencyArrowOpen: () => dispatch(currencyArrowAC()),
       currentPageDispatch: (e) => dispatch(setCategory(e)),
-      cartOpenClose: () => dispatch(cartOpenAC()),
+      cartOpenClose: (value) => dispatch(cartOpenAC(value)),
       amountTotal: (value) => dispatch(addTotalCountAC(value)),
       addThisItemToCart: (value) => dispatch(addToCartAC(value)),
     };

@@ -12,6 +12,7 @@ function mapStateToProps() {
       currency: state.currency,
       currencyName: state.currencyName,
       total: state.total,
+      cartOpen: state.cartOpen,
     };
   };
 }
