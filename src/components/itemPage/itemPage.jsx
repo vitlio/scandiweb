@@ -42,6 +42,7 @@ class ItemPage extends React.PureComponent {
     };
   }
   componentDidMount() {
+    let { itemName } = this.props.match.params;
     let url =
       "http://localhost:4000?query={category{products{category,gallery,inStock,name,description,attributes{id,name,type,items{displayValue,value,id}} prices{currency,amount}}}}";
     fetch(url)
@@ -50,7 +51,7 @@ class ItemPage extends React.PureComponent {
         let currentItem = data.data.category.products.filter(
           (i) =>
             i.name.toLowerCase() ===
-            this.props.match.params.itemName.toLowerCase()
+            itemName.toLowerCase()
         )[0];
         this.setState({ item: currentItem });
         this.setState({ imageURL: currentItem.gallery[0] });
@@ -63,6 +64,7 @@ class ItemPage extends React.PureComponent {
       });
   }
   componentDidUpdate(prevProps) {
+    let { itemName } = this.props.match.params;
     if (prevProps.match.url !== this.props.match.url) {
       let url =
         "http://localhost:4000?query={category{products{category,gallery,inStock,name,description,attributes{id,name,type,items{displayValue,value,id}} prices{currency,amount}}}}";
@@ -72,7 +74,7 @@ class ItemPage extends React.PureComponent {
           let currentItem = data.data.category.products.filter(
             (i) =>
               i.name.toLowerCase() ===
-              this.props.match.params.itemName.toLowerCase()
+              itemName.toLowerCase()
           )[0];
           this.setState({ item: currentItem });
           this.setState({ imageURL: currentItem.gallery[0] });
@@ -93,7 +95,6 @@ class ItemPage extends React.PureComponent {
     this.props.cartOpen
       ? document.body.classList.add("component-overflow")
       : document.body.classList.remove("component-overflow");
-    console.log("itemPage", this.props.cart);
     return (
 
       <>

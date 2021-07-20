@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import ITEM_W from "../item/item_w";
 import "./itemlist.css";
 
-class Itemlist extends React.PureComponent {
+class Itemlist extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,8 @@ class Itemlist extends React.PureComponent {
   }
   componentDidMount() {
     let url;
-    if (!this.props.match.params.categoryName) {
+    let { categoryName } = this.props.match.params;
+    if (!categoryName) {
       url = `http://localhost:4000?query={
         category{
           products{
@@ -36,7 +37,7 @@ class Itemlist extends React.PureComponent {
               }}}}`;
     } else {
       url = `http://localhost:4000?query={
-                category(input: {title: ${this.props.match.params.categoryName}}){
+                category(input: {title: "${categoryName}"}){
                   products{
                     category,
                     gallery,
@@ -57,15 +58,70 @@ class Itemlist extends React.PureComponent {
                         amount
                       }}}}`;
     }
-
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
         this.setState({ allItems: data.data.category.products });
       });
   }
+  componentDidUpdate(prevProps) {
+    let url;
+    let { categoryName } = this.props.match.params;
+    if (categoryName !== prevProps.match.params.categoryName) {
+      if (!categoryName) {
+        url = `http://localhost:4000?query={
+          category{
+            products{
+              category,
+              gallery,
+              inStock,
+              name,
+              description,
+              attributes{
+                id,
+                name,
+                type,
+                items{
+                  displayValue,
+                  value,
+                  id
+                }} 
+                prices{
+                  currency,
+                  amount
+                }}}}`;
+      } else {
+        url = `http://localhost:4000?query={
+                  category(input: {title: "${categoryName}"}){
+                    products{
+                      category,
+                      gallery,
+                      inStock,
+                      name,
+                      description,
+                      attributes{
+                        id,
+                        name,
+                        type,
+                        items{
+                          displayValue,
+                          value,
+                          id
+                        }} 
+                        prices{
+                          currency,
+                          amount
+                        }}}}`;
+      }
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+          this.setState({ allItems: data.data.category.products });
+        });
+    }
+  }
   render() {
-    console.log("props.match.url", this.props.match.params.categoryName);
+    let { categoryName } = this.props.match.params;
     return (
       <div className="itemlist">
         {document.location.pathname === "/" &&
@@ -80,13 +136,9 @@ class Itemlist extends React.PureComponent {
               </NavLink>
             </div>
           ))}
-        {this.props.match.params.categoryName &&
+        {categoryName &&
           this.state.allItems
-            .filter(
-              (i) =>
-                i.category.toLowerCase() ===
-                this.props.match.params.categoryName
-            )
+            .filter((i) => i.category.toLowerCase() === categoryName)
             .map((i, idx) => (
               <div key={idx} className="item-container-cell">
                 <NavLink to={"/item/" + i.name}>
